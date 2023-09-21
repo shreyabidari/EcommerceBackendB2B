@@ -9,20 +9,23 @@
         public int Quantity { get; set; }
         public string Image { get; set; }
 
-        // Foreign key
-        public int CategoryID { get; set; }
-        public Category Category { get; set; }
+        // Foreign key property for the Category associated with this product
+        public int CategoryId { get; set; }
+
+        // Navigation property for the Category associated with this product
+        public virtual Category Category { get; set; }
 
         // Navigation property for the many-to-many relationship with  CartproductDetails
         public virtual ICollection<CartProduct> CartProducts { get; set; }
+        // Navigation property for the many-to-many relationship with wholesalers
+        public virtual ICollection<WholesalerProduct> WholesalerProducts { get; set; }
 
+        // Navigation property for the one-to-many relationship with SalesProduct
+        public virtual ICollection<SalesProductDetails> SalesProductDetails { get; set; }
+
+        // Navigation property for Returns associated with this product
+        public virtual ICollection<SalesReturnDetails> SalesReturnDetails { get; set; }
 
     }
 }
-//Attributes: ID, Name, Description, Price, Quantity, 
-//    Image, CategoryID, etc.
-//Relationships: Many - to - One with Category, 
-//    One-to-Many with CartProductDetails, 
-//    One-to-Many with SalesProductDetails, 
-//    Many-to-Many with Cart (through CartProductDetails),
-//    Many - to - Many with Sales(through SalesProductDetails).
+

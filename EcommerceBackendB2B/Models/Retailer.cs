@@ -21,12 +21,12 @@
         //public ICollection<Sales> Sales { get; set; }
 
         public List<ApprovalRequest> ApprovalRequests { get; set; }
+
+        // Navigation property for Returns associated with this retailer
+        public virtual ICollection<SalesReturn> SalesReturns { get; set; }
+
+        // Navigation property for the many-to-many relationship with Wholesalers
+        public virtual ICollection<WholesalerRetailer> WholesalerRetailers { get; set; }
     }
 }
-//Attributes: ID, Username, Email, Password, Role (Retailer),
-//    Status (Pending / Approved / Banned), ApprovalStatus, 
-//    ContactInfo, etc.
-//Relationships: One - to - Many with Notifications, 
-//    Many-to-One with Wholesaler ,
-//    One - to - Many with Cart, One-to-Many with Sales, 
-//    One-to-Many with ApprovalRequest (as Requester).
+
