@@ -12,6 +12,9 @@
         public Cart Cart { get; set; }
         public int ProductID { get; set; }
         public Product Product { get; set; }
+
+        // Navigation property for the many-to-many relationship with Products
+        public virtual ICollection<CartProduct> CartProducts { get; set; }
     }
 }
 

@@ -13,9 +13,10 @@
         public int CategoryID { get; set; }
         public Category Category { get; set; }
 
-        // Navigation properties
-        public List<CartProductDetails> CartDetails { get; set; }
-        public List<SalesProductDetails> SalesDetails { get; set; }
+        // Navigation property for the many-to-many relationship with  CartproductDetails
+        public virtual ICollection<CartProduct> CartProducts { get; set; }
+
+
     }
 }
 //Attributes: ID, Name, Description, Price, Quantity, 
