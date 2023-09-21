@@ -8,7 +8,7 @@
         public string ReturnStatus { get; set; }
         public decimal TotalRefundAmount { get; set; }
 
-        // Navigation property for the Customer associated with this return
+       // Navigation property for the Customer associated with this return
         public int RetailertId { get; set; }
         public virtual Retailer Retailer { get; set; }
 
