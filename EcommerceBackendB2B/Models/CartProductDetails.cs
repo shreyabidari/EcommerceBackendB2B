@@ -13,7 +13,7 @@
       
 
         // Navigation property for the many-to-many relationship with Products
-        public virtual ICollection<CartProduct> CartProducts { get; set; }
+        public virtual ICollection<CartProduct> CartProduct { get; set; }
     }
 }
 

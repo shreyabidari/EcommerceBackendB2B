@@ -14,6 +14,4 @@
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
     }
-//Attributes: ID, SalesID, ProductID, Quantity, TotalPrice, etc.
-//Relationships: Many - to - One with Sales, 
-//    Many-to-One with Product.
+}

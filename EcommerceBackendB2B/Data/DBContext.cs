@@ -32,8 +32,24 @@ namespace EcommerceBackendB2B.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Define additional configurations if needed
+           // Configure the many-to - many relationship between CartProductDetails and Product
+    modelBuilder.Entity<CartProduct>()
+        .HasKey(cp => new { cp.ProductId, cp.CartProductDetailsId });
 
+            modelBuilder.Entity<CartProduct>()
+                .HasOne(cp => cp.Product)
+                .WithMany(p => p.CartProducts)
+                .HasForeignKey(cp => cp.ProductId);
+
+            modelBuilder.Entity<CartProduct>()
+                .HasOne(cp => cp.CartProductDetails)
+                .WithMany()
+                .HasForeignKey(cp => cp.CartProductDetailsId);
+            // Define additional configurations if needed
+            
+            modelBuilder.Entity<WholesalerProduct>().HasNoKey();
+            modelBuilder.Entity<WholesalerCategory>().HasNoKey();
+            modelBuilder.Entity<WholesalerRetailer>().HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
     }
